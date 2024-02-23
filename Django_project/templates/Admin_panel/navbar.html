@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    
+    <title>Navbar</title>
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top color">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand"><i class="fa fa-users"></i>Admin Panel</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+               <li><a href="{% url 'home' %}"><i class="fa fa-home"></i>home</a></li>
+               {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i>profile</a></li>
+                    <li><a href="{% url 'logout' %}"><i class="fa fa-user"></i>logout</a></li>
+               {% else %}
+                    <li><a href="{% url 'login' %}"><i class="fa fa-user"></i>login</a></li>
+                    <li><a href="{% url 'Register' %}"><i class="fa fa-user"></i>Register</a></li>
+               {% endif %}
+               
+                
+            </ul>
+        </div>
+
+    </nav>
+    
+</body>
+</html>
